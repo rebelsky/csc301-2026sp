@@ -1,0 +1,63 @@
+- date: 2026-03-06
+  assigned: Problem Set 3
+
+- date: 2026-03-23
+  assigned:
+    - Assessment 2
+
+- date: 2026-03-25
+  assigned:
+    - Project 3
+
+- date: 2026-03-27
+  due: Problem Set 3
+
+- date: 2026-03-30
+  due:
+    - Project 1 First Resubmission
+    - Problem Set 1 First Resubmission
+    - Assessment 1 First Resubmission
+    - Project 2 First Resubmission
+    - Problem Set 2 First Resubmission
+
+- date: 2026-04-01
+  due:
+    - Assessment 2
+  assigned:
+    - Project 4
+
+- date: 2026-04-13
+  assigned:
+    - Assessment 3
+
+- date: 2026-04-17
+  due:
+    - Problem Set 4
+    - Project 4
+
+- date: 2026-04-22
+  assigned: 
+    - Problem Set 5
+  due:
+    - Assessment 3
+
+- date: 2026-04-24
+  assigned:
+    - Project 5
+
+- date: 2026-05-01
+  due: 
+    - Problem Set 5 (early)
+    - Project 5 (early)
+  assigned:
+    - Assessment 4
+
+- date: 2026-05-08
+  due:
+    - Problem Set 5
+    - Project 5
+    - Assessment 4
+
+- date: 2026-05-15
+  due:
+    - All remaining resubmissions (at 5:00 p.m.)

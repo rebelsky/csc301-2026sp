@@ -1,0 +1,126 @@
+- topic: Class 01
+  abbrev: class01
+
+- topic: Class 02
+  abbrev: class02
+
+- topic: Class 03
+  abbrev: class03
+
+- topic: Class 04
+  abbrev: class04
+
+- topic: Class 05
+  abbrev: class05
+
+- topic: Class 06
+  abbrev: class06
+
+- topic: Class 07
+  abbrev: class07
+
+- topic: Class 08
+  abbrev: class08
+
+- topic: Class 09
+  abbrev: class09
+
+- topic: Class 10
+  abbrev: class10
+
+- topic: Class 11
+  abbrev: class11
+
+- topic: Class 12
+  abbrev: class12
+
+- topic: Class 13
+  abbrev: class13
+
+- topic: Class 14
+  abbrev: class14
+
+- topic: Class 15
+  abbrev: class15
+
+- topic: Class 16
+  abbrev: class16
+
+- topic: Class 17
+  abbrev: class17
+
+- topic: Class 18
+  abbrev: class18
+
+- topic: Class 19
+  abbrev: class19
+
+- topic: Class 20
+  abbrev: class20
+
+- topic: The shortest-path problem and Dijkstra's algorithm
+  abbrev: shortest-path
+
+- topic: The Bellman-Ford algorithm
+  abbrev: bellman-ford
+
+- topic: Bellman-Ford, continued
+  abbrev: bellman-ford-continued
+
+- topic: Greedy algorithms
+  abbrev: greedy-algorithms
+
+- topic: Minimum spanning trees
+  abbrev: mst
+
+- topic: MSTs and more
+  abbrev: mst-wrapup
+
+- topic: Bipartite Matching
+  abbrev: bipartite-matching
+
+- topic: Greed, revisited
+  abbrev: greed-revisited
+
+- topic: Pause for breath
+  abbrev: pause-29
+
+- topic: O(n) sorting algorithms
+  abbrev: order-n-sorting
+
+- topic: Balanced search trees (1)
+  abbrev: balanced-trees-1
+
+- topic: Balanced search trees (2)
+  abbrev: balanced-trees-2 
+
+- topic: Introduction to dynamic programing (and the knapsack problem)
+  abbrev: dynamic-programming-1
+
+- topic: Longest common subsequence
+  abbrev: lcs
+
+- topic: Edit distance
+  abbrev: edit-distance
+
+- topic: Dynamic programming (2)
+  abbrev: dp-02
+
+- topic: Dynamic programming (3)
+  abbrev: dp-03
+
+- topic: Pause for breath
+  abbrev: pause-38
+
+- topic: Dynamic programming (4)
+  abbrev: dp-04
+
+- topic: Ethics
+  abbrev: ethics
+
+- topic: Wrapup
+  abbrev: wrapup
+
+- topic: All Work Due
+  abbrev: finals
+
