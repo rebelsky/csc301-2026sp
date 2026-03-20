@@ -131,6 +131,7 @@ permalink: /schedule/
                 </div>
                 <div class="row stuff">
                   <div class="reading col-md-4 col-sm-4 col-xs-6">
+                  {% assign reading = class.reading %}
                   {% if reading.size > 0 %}
                     {% assign reading = class.reading %}
                     {% if reading.size > 1 %}
