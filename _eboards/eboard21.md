@@ -131,12 +131,15 @@ Notes on project 2
 Here's a sketch of a typical solution to project 2
 
 ```
+/*
+ * Breadth first search.
+ */
 BFS(adjList, start, finish):
     vertices = new Queue
     vertices.enqueue(start.label)
     while (!vertices.isEmpty())
         v = vertices.dequeue();    
-        mark v
+        mark(v)
         for n : neighbors(vertex)
             if (!marked(n))
                 n.previous = vertex
@@ -149,12 +152,15 @@ BFS(adjList, start, finish):
     path.addToFront(v)
     return path
 
+/*
+ * Depth first search.
+ */
 DFS(adjList, start, finish):
     vertices = new Stack
     vertices.push(start.label)
     while (!vertices.isEmpty())
         v = vertices.pop();    
-        mark v
+        mark(v)
         for n : neighbors(vertex)
             if (!marked(n))
                 n.previous = vertex
@@ -168,9 +174,11 @@ DFS(adjList, start, finish):
     return path
 ```
 
-That has a variety of problems, including at least one incorrectness
-issue, at least two stylistic issues, and at least three efficiency issues.
-How many can you identify? (TPS)
+That has a variety of problems, including at least one problem with
+correctness, at least three stylistic issues, and at least inefficient
+approaches.  How many can you identify? (TPS)
+
+_I don't guarantee that I'll remember all of them._
 
 * 
 * 
@@ -180,6 +188,11 @@ How many can you identify? (TPS)
 * 
 
 How would you address the following? (TPS)
+
+* 
+* 
+* 
+* 
 
 Refresh: How do you approach an algorithms problem?
 ---------------------------------------------------
@@ -215,14 +228,15 @@ Dijkstra's algorithm
 --------------------
 
 _Many of you have seen Dijkstra's algorithm before. We'll split the class
-into those who remember it and those who do not._
+into those who remember it and those who do not. We'll then split those into
+smaller groups_
 
-Those who don't remembrer it: How would you approach the problem? (TPS)
+Those who don't remember it: How would you approach the problem? (TPS)
 
 Those who do remember it: How would you prove it correct? (TPS)
 
-Those who already remember how to prove it correct?: Listen in to
-discussions but don't help.
+Those who already remember how to prove it correct: Listen in to
+discussions but try not to help.
 
 Proving Dijkstra's algorithm correct
 ------------------------------------
