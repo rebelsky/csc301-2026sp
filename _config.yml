@@ -117,7 +117,7 @@ kramdown:
   syntax_highlighter: rouge
   syntax_highlighter_opts:
     css_class: 'highlight'
-    default_lang: drracket
+    default_lang: java
     span:
       line_numbers: false
     block:
