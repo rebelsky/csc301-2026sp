@@ -58,9 +58,13 @@
 - topic: Class 20
   abbrev: class20
 
+- topic: Rebooting the Class
+  abbrev: rebooting
+  notes: ../eboards/eboard21.html
+
 - topic: The shortest-path problem and Dijkstra's algorithm
   abbrev: shortest-path
-  notes: ../eboards/eboard21.html
+  notes: ../eboards/eboard22.html
 
 - topic: The Bellman-Ford algorithm
   abbrev: bellman-ford
