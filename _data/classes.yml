@@ -72,13 +72,10 @@
     - CLRS 604--611 (Shortest Path) 
     - CLRS 620--624 (Dijkstra's)
 
-- topic: Bellman-Ford, continued
-  abbrev: bellman-ford-continued
-  reading:
-    - CLRS 22.1 (Bellman-Ford)
-
 - topic: Greedy algorithms
   abbrev: greedy-algorithms
+  reading:
+    - CLRS 22.1 (Bellman-Ford)
 
 - topic: Minimum spanning trees
   abbrev: mst

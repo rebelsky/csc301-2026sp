@@ -20,11 +20,14 @@ _Approximate overview_
 Administrative stuff
 --------------------
 
+* I'm new to Canvas, and have not yet figured out how to put due dates
+  on there. Stay tuned!
 * Although "Spam from Sam" is my traditional mechanism for communicating
   minor course issues to students, for this course, I'll be using the
   Canvas announcement system. Let me know if that doesn't work for you.
     * Do you get email when I post an announcement?
     * Recent posts:
+        * Grades for Assessment 1.2 posted
         * Test for problem 2.4 posted
         * Notes on proof by induction posted
         * Repacement version of Problem 21 posted
@@ -80,7 +83,8 @@ A shortest path problem
 
 Given a weighted graph, $$G = (V, E, w)$$ and designated vertices
 $$s,t \in V$$, find the path from $$s$$ to $$t$$ with the last
-total weight. You may assume that all weights are positive.
+total weight. (Alternately, find the weight of that path.) You may 
+assume that all weights are positive.
 
 Formalization question: What "types" are $$V$$, $$E$$, and $$w$$?
 
@@ -104,6 +108,25 @@ it mathematically?
 
 Answer to formalization question:
 
+*
+
+Sample Graph
+
+* V = { V0, V1, V2, V3, V4 }
+* Weights:
+    * w(V0,V1) = 3
+    * w(V0,V3) = 5
+    * w(V1,V2) = 6
+    * w(V1,V3) = 1
+    * w(V2,V4) = 2
+    * w(V3,V1) = 1
+    * w(V3,V2) = 3
+    * w(V3,V4) = 4
+    * w(V4,V2) = 1
+* E is implicit from the weights
+
+QUestion: What is the shortest path from V0 to V4?
+     
 Dijkstra's algorithm
 --------------------
 
@@ -117,6 +140,13 @@ Those who do remember it: How would you prove it correct? (TPS)
 
 Those who already remember how to prove it correct: Listen in to
 discussions but try not to help.
+
+```
+shortestPath(V, E, w, s, t):
+    // Initialization
+    // Loop 
+    // Whatever else
+```
 
 Proving Dijkstra's algorithm correct
 ------------------------------------
