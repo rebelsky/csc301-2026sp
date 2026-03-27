@@ -71,6 +71,7 @@
   reading:
     - CLRS 604--611 (Shortest Path) 
     - CLRS 620--624 (Dijkstra's)
+  notes: ../eboards/eboard23.html
 
 - topic: Greedy algorithms
   abbrev: greedy-algorithms

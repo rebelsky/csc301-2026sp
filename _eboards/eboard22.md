@@ -55,6 +55,7 @@ Administrative stuff
 * Friday, 2026-03-27: Read CLRS 604--611 (Shortest Path) and 
   620--624 (Dijkstra's). 
     * Please don't read about Bellman-Ford.
+* Friday, 2026-03-27: Problem Set 3
 * Monday, 2026-03-30: Read CLRS 22.1 (Bellman-Ford)
 * Monday, 2026-03-30: Resubmissions of Assessment 1, Problem Set 1, Problem
   Set 2, Project 1, and Project 2 due.
