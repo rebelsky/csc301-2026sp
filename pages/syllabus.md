@@ -87,7 +87,7 @@ permalink: /syllabus/
 
 ## About this course
 
-Welcome to the Spring 2026 version of Grinnell College's CSC-301-01, *Analysis of Algorithms*.  CSC -301 is the department's advanced course in algorithms.  It serves as a successor to CSC-207, _Object-Oriented Design, Algorithms, and Data Structures_.  In this course, we will work to develop your skills in the design, implementation, analysis, and verification of algorithms, abstract data types, and data structures.  
+Welcome to the Spring 2026 version of Grinnell College's CSC-301-01, *Analysis of Algorithms*.  CSC -301 is the department's advanced course in algorithms.  It serves as a successor to CSC-207, _Object-Oriented Design, Algorithms, and Data Structures_.  In this course, we will work to develop your skills in the design, implementation, analysis, and verification of algorithms, abstract data types, and data structures.
 
 Along the way, we will consider a variety of classic algorithms, ADTs, and data structures - the "literature" of CS, as it were.  Why do we read the literature?  Because knowing how problems have been solved in the past helps us solve future problems.  A not-so-recent article on mathematics suggests the value of knowing the literature.
 
@@ -107,7 +107,10 @@ I took over as instructor for this course in the middle of the semester. Among o
 
 Here are a few of the important changes.
 
-* **Resubmissions**: You were previously permitted one resubmission per assignment (problem, programming project, or assessment), due at the end of the semester. I will do my best to permit an extra resubmission, generally due one week after I return the graded assignment. (You may not turn in late resubmissions.)
+* **Resubmissions**: If resubmissions are submitted within a week of you receiving your graded work, we will do our best to grade them within another week. After that, we'll grade them when we can.
+* **Assessment Resubmissions**: When you resubmit an assessment, you must also provide a summary of what you got wrong along with notes on why and how to fix it. A handout on Canvas explains more.
+* **Late Work**: If your work is less than one day (24 hours) late, we will grade it with the on-time work. If your work is less than three days (72 hours) late, we will do our best to grade it with the on-time work. After that, we'll grade it when we can, perhaps not until the first resubmisions are due.
+* **Very Late Work**: If you do not submit work within the 72-hour deadline and do not send me a message, I will turn in an Academic Alert to help ensure that you get support.
 * **Attendance**: My attendance policies are different. I expect you to show up every day. If you can't make it to class, you must send me an email message. You can read more details below.
 * **Structure of class sessions**: As you may have noted from the comments above or will note from the comments below, you are likely to find that I run class sessions a bit differently. Among other things, I regularly call on students randomly during class. If that causes undue stress, please let me know and I'll work out an alternative.
 * **Academic alerts**: Although the course policies permit you to skip the initial submission of an assignment and submit only the "resubmission", I will submit an Academic Alert if you do not make the initial submission.
@@ -124,7 +127,7 @@ Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, and Clifford Stein (20
 
 > One of the most comprehensive texts on algorithms. Often treated as the standard.
 
-### Types of writing 
+### Types of writing
 
 This course employs a variety of genres of writing typically used in the discipline.  In particular, students will write,
 
