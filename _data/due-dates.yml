@@ -19,18 +19,18 @@
     - Assessment 1 First Resubmission
     - Project 2 First Resubmission
     - Problem Set 2 First Resubmission
-  assigned:
-    - Problem Set 4
 
 - date: 2026-04-01
   due:
     - Assessment 2
   assigned:
-    - Project 4
+    - Problem Set 4
 
 - date: 2026-04-06
   due:
     - Project 3
+  assigned:
+    - Project 4
 
 - date: 2026-04-13
   assigned:

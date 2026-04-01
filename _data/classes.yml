@@ -81,12 +81,17 @@
 
 - topic: Minimum spanning trees
   abbrev: mst
+  notes: ../eboards/eboard25.html
 
 - topic: MSTs and more
   abbrev: mst-wrapup
+  reading:
+    - CLRS pp. 417--424, 426--427 (Greed)
 
 - topic: Bipartite Matching
   abbrev: bipartite-matching
+  reading:
+    - CLRS 21 (MSTs)
 
 - topic: Greed, revisited
   abbrev: greed-revisited
