@@ -87,6 +87,7 @@
   abbrev: mst-wrapup
   reading:
     - CLRS pp. 417--424, 426--427 (Greed)
+  notes: ../eboards/eboard26.html
 
 - topic: Bipartite Matching
   abbrev: bipartite-matching
