@@ -33,6 +33,8 @@ Administrative stuff
   long administrative things).
 * The stable matching problem will almost certainly continue into
   next class.
+* I forgot my charger; there's a small chance that the recording will
+  end early.
 
 ### Upcoming events
 
@@ -42,14 +44,14 @@ Administrative stuff
 * Wednesday Extra, 2026-04-08, 4:15--5:45 p.m.: _CS Poster Session_
 * Thursday Extra, 2026-04-09, 4:15--5:45 p.m.: _CS Poster Session_
 * Thursday, 2026-04-09, 7:00 p.m., _Mentor Session_
-* Friday, 2026-04-10, 5:30--7:00 p.m., _Keynote with Ajuna Kyaruzi_.
+* Friday, 2026-04-10, 5:30--7:00 p.m., _Keynote with Ajuna Kyaruzi '17_.
   Sign up in advance by Wednesday.
 
 ### Upcoming deadlines
 
 * Tonight, 2026-04-06: Project 3 due (does not match Autry's syllabus)
-* Friday, 2026-04-10: Read CLRS 25.2 (skimming is okay)
-* Monday, 2026-04-13: Assessment 3 Resubmissions
+* Friday, 2026-04-10: Read CLRS 25.2 on Stable Marriage (skimming is okay)
+* Monday, 2026-04-13: Assessment 2 Resubmissions
 * Monday, 2026-04-13: Problem Set 3 Resubmissions
 * Friday, 2026-04-17: Problem set 4 due
 * Friday, 2026-04-17: Project 4 due
@@ -57,18 +59,46 @@ Administrative stuff
 ### Project 4
 
 * A chance to implement Prim's and Kruskal's. Yay!
+    * Please use data structures/objects, even if not the optimal ones.
 * Also a chance to use them to _approximate_ a variant of a difficult 
   problem.
 * Traveling Salescritter Problem (TSP) takes as input a (complete)
   weighted graph with positive weights and finds the shortest path
   that visits each vertex exactly once, returning to the starting
   vertex.
-* TSP is NP-complete. That means that ...
-* 
-* 
-* 
+* TSP is NP-complete. That means that no one has found a solution
+  that is better than exponential. $$O(2^n)$$ or something like that.
+* Solutions are not asymptotically better than "List every path
+  in the graph and choose the smallest.
+* However, we can find reasonable approximations to TSP if we place
+  some limitations on the problem.
+    * Assume that the graph is complete.
+    * Assume that the triangle inequality holds for every triplet of
+      vertices. (That is, any edge in a triangle is smaller than
+      the sum of the neighboring edges.)
+* Observation: The MST is closely related to possible solutions to TSP.
+    * If you traverse the MST, you'll hit many vertices twice, but
+      you will visit every vertex and return to the starting vertex.
+    * If you have a solution to the TSP, it must be bigger than the
+      weight of the MST. (Otherwise, we could chop out one edge,
+      and we'd be left with a spanning tree.)
+    * It is strictly larger, because it has one more edge than an
+      MST, and removing one edge will (a) create a spanning tree
+      and (b) give something with less weight.
+* Followup: If the weight of the MST is less than the solution to the
+  TSP, and the path is no more than double the weight to the MST,
+  we know that that path is no more than the double the TSP.
+* We can turn the "cycle through the MST" path into one that visits
+  each vertex exactly once by "taking a shortcut" whenever we might
+  return to a vertex.
+    * We need for the graph to be complete to make this choice.
+    * We also need the triangle inequality to hold.
 
 ### Policy/administrative/assignment questions
+
+Can we resubit again for the assessments?
+
+> Certainly. I'm not sure when I'll get to regrading, but I'll try.
 
 On the Towers of Hanoi
 ----------------------
@@ -513,7 +543,11 @@ blocks?
 Bipartite Graphs
 ----------------
 
-What is a bipartite graph?
+What is a bipartite graph? 
+
+A bipartite graph is a graph in which you can divide the vertices into
+two sets (often $$L$$,$$R$$) such that all edges connect a vertex in
+$$L$$ to a vertex in $$R$$.
 
 Bipartite Matching
 ------------------
@@ -525,13 +559,28 @@ each element of each set can match at most one element of the other set.
   number of matching edges.
 * In a weighted undirected bipartite graph, we likely want to maximize 
   the sum of the weights of the matching edges.
-* In a weighted directed bipartite graph, we also likely want to maximize
-  the sum, but have the additional restriction that we need to ensure that
-  both edges are taken simultaneously.
-    * That's actually fairly easy: We turn it into a weighted undirected
-      bipartite graph by summing edge weights.
+    * Perhaps the lowest total weight, but that's weird.
 
 Let's try to phrase the first two problems a bit more formally. (TPS)
+
+Definition: Given a (weighted) bipartite graph, 
+$$G = (L,R,E\subset L\times R,w)$$, a _matching_ in $$G$$ is
+a set of edges $$M \subseteq E$$ s.t., $$\forall l \in L, r \in R$$,
+there is at most one edge of the form $$[l,\*]$$ and at most one
+edge of the form $$[?,\*]$$ ,in $$M$$
+
+Maximal Unweighted Bipartite Matching
+
+Given a graph, $$G$$, find a matching, $$M$$ s.t., 
+$$\forall O\subseteq E$$ where $$O$ is a matching of $$G$$, $$|M| \ge |O|$$
+
+Maximal Weighted Bipartite Matching
+
+Given a graph, $$G$$, find a matching, $$M$$ s.t., 
+$$\forall O\subseteq E$$ where $$O$ is a matching of $$G$$, 
+$$\sum_{m\in M}w(m) \ge \sum_{o\in O}w(o)$$
+
+**We stopped here!**
 
 Greedy Approaches to Bipartite Matching
 ---------------------------------------
