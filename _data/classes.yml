@@ -89,17 +89,18 @@
     - CLRS pp. 417--424, 426--427 (Greed)
   notes: ../eboards/eboard26.html
 
-- topic: Bipartite Matching and Stable Matching
+- topic: Bipartite matching
   abbrev: bipartite-matching
   reading:
     - CLRS 21 (MSTs)
   notes: ../eboards/eboard27.html
 
+- topic: Bipartite and stable matching
+  abbrev: stable-matching
+  notes: ../eboards/eboard28.html
+
 - topic: Greed, revisited
   abbrev: greed-revisited
-
-- topic: Pause for breath
-  abbrev: pause-29
   reading:
     - CLRS 25.2 (The stable-marriage problem)
 
