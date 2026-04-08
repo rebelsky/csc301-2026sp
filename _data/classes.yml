@@ -109,6 +109,9 @@
 
 - topic: Balanced search trees (1)
   abbrev: balanced-trees-1
+  reading:
+    - CLRS 8.3 (Radix Sort) 
+    - CLRS 8.4 (Bucket Sort)
 
 - topic: Balanced search trees (2)
   abbrev: balanced-trees-2 
