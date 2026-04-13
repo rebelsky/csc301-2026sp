@@ -566,18 +566,18 @@ Let's try to phrase the first two problems a bit more formally. (TPS)
 Definition: Given a (weighted) bipartite graph, 
 $$G = (L,R,E\subset L\times R,w)$$, a _matching_ in $$G$$ is
 a set of edges $$M \subseteq E$$ s.t., $$\forall l \in L, r \in R$$,
-there is at most one edge of the form $$[l,\*]$$ and at most one
-edge of the form $$[?,\*]$$ ,in $$M$$
+there is at most one edge of the form $$[l,\star]$$ and at most one
+edge of the form $$[\star,r]$$ ,in $$M$$
 
 Maximal Unweighted Bipartite Matching
 
 Given a graph, $$G$$, find a matching, $$M$$ s.t., 
-$$\forall O\subseteq E$$ where $$O$ is a matching of $$G$$, $$|M| \ge |O|$$
+$$\forall O\subseteq E$$ where $$O is a matching of $$G$$, $$|M| \ge |O|$$
 
 Maximal Weighted Bipartite Matching
 
 Given a graph, $$G$$, find a matching, $$M$$ s.t., 
-$$\forall O\subseteq E$$ where $$O$ is a matching of $$G$$, 
+$$\forall O\subseteq E$$ where $$O$$ is a matching of $$G$$, 
 $$\sum_{m\in M}w(m) \ge \sum_{o\in O}w(o)$$
 
 **We stopped here!**

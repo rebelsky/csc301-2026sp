@@ -103,6 +103,7 @@
   abbrev: greed-revisited
   reading:
     - CLRS 25.2 (The stable-marriage problem)
+  notes: ../eboards/eboard29.html
 
 - topic: O(n) sorting algorithms
   abbrev: order-n-sorting
