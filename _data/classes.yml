@@ -107,6 +107,7 @@
 
 - topic: O(n) sorting algorithms
   abbrev: order-n-sorting
+  notes: ../eboards/eboard30.html
 
 - topic: Balanced search trees (1)
   abbrev: balanced-trees-1
