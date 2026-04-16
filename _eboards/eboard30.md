@@ -39,8 +39,8 @@ Administrative stuff
 * Wednesday, 2026-04-15: Skim CLRS 8.3 (Radix Sort) and 8.4 (Bucket Sort)
 * Friday, 2026-04-17: Problem set 4 due
 * Friday, 2026-04-17: Project 4 due
+* Monday, 2026-04-20: Assessment 2.1 Resubmissions
 * Wednesday, 2026-04-22: Assessment 3 due
-* Monday, 2026-04-29: Assessment 2.1 Resubmissions
 
 ### Assessment 3 released
 
