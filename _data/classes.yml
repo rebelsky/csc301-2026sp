@@ -109,38 +109,41 @@
   abbrev: order-n-sorting
   notes: ../eboards/eboard30.html
 
-- topic: Balanced search trees (1)
-  abbrev: balanced-trees-1
+
+- topic: Introduction to dynamic programing
+  abbrev: dynamic-programming-1
   reading:
     - CLRS 8.3 (Radix Sort) 
     - CLRS 8.4 (Bucket Sort)
+  notes: ../eboards/eboard31.html
 
-- topic: Balanced search trees (2)
-  abbrev: balanced-trees-2 
-
-- topic: Introduction to dynamic programing (and the knapsack problem)
-  abbrev: dynamic-programming-1
-
-- topic: Longest common subsequence
-  abbrev: lcs
-
-- topic: Edit distance
-  abbrev: edit-distance
-
-- topic: Dynamic programming (2)
+- topic: 'Dynamic programming 2: Knapsack and Longest common sequence'
   abbrev: dp-02
+  notes: ../eboards/eboard32.html
 
-- topic: Dynamic programming (3)
+- topic: 'Dynamic programming 3: LCS and edit distance'
   abbrev: dp-03
+
+- topic: Dynamic programming 4
+  abbrev: dp-04
+
+- topic: Dynamic programming 5
+  abbrev: dp-05
 
 - topic: Pause for breath
   abbrev: pause-38
 
-- topic: Dynamic programming (4)
-  abbrev: dp-04
+- topic: Balanced search trees (1)
+  abbrev: balanced-trees-1
+
+- topic: Balanced search trees (2)
+  abbrev: balanced-trees-2 
 
 - topic: Ethics
   abbrev: ethics
+
+- topic: Advanced algorithms topics
+  abbrev: advanced-algorithms
 
 - topic: Wrapup
   abbrev: wrapup
