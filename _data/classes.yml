@@ -117,14 +117,15 @@
     - CLRS 8.4 (Bucket Sort)
   notes: ../eboards/eboard31.html
 
-- topic: 'Dynamic programming 2: Knapsack and Longest common sequence'
+- topic: 'Dynamic programming 2: Knapsack'
   abbrev: dp-02
   notes: ../eboards/eboard32.html
 
-- topic: 'Dynamic programming 3: LCS and edit distance'
+- topic: 'Dynamic programming 3: Longest common subsequence'
   abbrev: dp-03
+  notes: ../eboards/eboard33.html
 
-- topic: Dynamic programming 4
+- topic: 'Dynamic programming 4: Edit distance'
   abbrev: dp-04
 
 - topic: Dynamic programming 5

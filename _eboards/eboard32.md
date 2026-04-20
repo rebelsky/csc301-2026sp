@@ -2,7 +2,7 @@
 title: "EBoard 32: Dynamic Programming (2)"
 number: 32
 section: eboards
-held: 2026-04-15
+held: 2026-04-17
 link: true
 ---
 # {{ page.title }}
