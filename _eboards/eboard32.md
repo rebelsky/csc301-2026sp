@@ -347,7 +347,7 @@ fillKnapsackTable(I, W) {
 Longest common subsequences
 ---------------------------
 
-Given two strings, $$S = s_1, s_2, ..., s_n and $$T = t_1, t_2, ... t_m$$, 
+Given two strings, $$S = s_1, s_2, ..., s_n$$ and $$T = t_1, t_2, ... t_m$$, 
 find the longest possible matching substrings in $$S$$ and $$T$$, where
 a substring is a sequence of elements _in order_, but possibly with gaps.
 
