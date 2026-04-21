@@ -121,23 +121,25 @@
   abbrev: dp-02
   notes: ../eboards/eboard32.html
 
-- topic: 'Dynamic programming 3: Longest common subsequence'
+- topic: 'Dynamic programming 3: Knapsack, continued'
   abbrev: dp-03
   notes: ../eboards/eboard33.html
 
-- topic: 'Dynamic programming 4: Edit distance'
+- topic: 'Dynamic programming 4: Longest common subsequence'
   abbrev: dp-04
+  notes: ../eboards/eboard34.html
 
+- topic: 'Dynamic programming 5: Edit distance'
 - topic: Dynamic programming 5
   abbrev: dp-05
 
-- topic: Pause for breath
-  abbrev: pause-38
+- topic: 'Dynamic programming 6: Interviews'
+  abbrev: dp-06
 
-- topic: Balanced search trees (1)
+- topic: Balanced search trees 1
   abbrev: balanced-trees-1
 
-- topic: Balanced search trees (2)
+- topic: Balanced search trees 2
   abbrev: balanced-trees-2 
 
 - topic: Ethics
