@@ -132,8 +132,9 @@
 - topic: 'Dynamic programming 5: Edit distance'
 - topic: Dynamic programming 5
   abbrev: dp-05
+  notes: ../eboards/eboard35.html
 
-- topic: 'Dynamic programming 6: Interviews'
+- topic: 'Dynamic programming 6: Worksheet'
   abbrev: dp-06
 
 - topic: Balanced search trees 1

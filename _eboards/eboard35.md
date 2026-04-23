@@ -1,0 +1,314 @@
+---
+title: "EBoard 35: Dynamic Programming (5)"
+number: 35
+section: eboards
+held: 2026-04-24
+link: true
+---
+# {{ page.title }}
+
+**Warning! You are _probably_ being recorded** (and transcribed).
+
+_Approximate overview_
+
+* Administrative stuff
+* Opening questions
+* Our current problem: Longest common subsequence
+    * Making it iterative
+    * Revising the running time
+    * Extracting the LCS
+* And one more problem: Edit distance
+    * The problem
+    * A recursive approach
+    * Designing the table
+    * Making it iterative
+    * Extracting the actions
+
+Administrative stuff
+--------------------
+
+### Upcoming events
+
+* Monday, 2026-04-27, 7:00 p.m., 3819, _Mentor Session_
+* Thursday, 2026-04-30, 4:15--5:15pm, _Thursday Extra_ (?)
+* Thursday, 2026-04-30, 7:00 p.m., _Mentor Session_
+* Friday, 2025-05-01, 5:00 p.m.: _CS Picnic_
+
+### Upcoming deadlines
+
+* Friday, 2026-05-01: _Early Deadline_ for Problem Set 5
+* Friday, 2026-05-01: _Early Deadline_ for Project 5
+* Friday, 2026-05-08: Problem Set 5 due
+* Friday, 2026-05-08: Project 5 due
+* Friday, 2026-05-08: Assessment 4 due
+* Friday, 2026-05-15 (5pm): All resubmissions/late work due. 
+  **No extensions. This deadline is _not_ a lie!**
+
+### Other upcoming dates
+
+* TODAY, 2026-04-24: Project 5 distributed
+* Friday, 2026-05-01: Assessment 4 distributed (only one problem!)
+
+### Project 5
+
+* Edit distance! (Today's problem.)
+
+### Policy/administrative/assignment questions
+
+Sam's Opening Questions
+-----------------------
+
+* Write the algorithm to fill out the LCS table iteratively.
+
+Review of LCS to date
+-------------
+
+### The table
+
+* Two dimensions
+* One for $$S$$, one for $$T$$
+* Cell `(s,t)` represents "number of characters in the LCS between
+  `S[s:]` and `T[t:]`.
+* An extra row and column at the end for "this portion is empty"
+
+```
+                    S (indexed by s)
+           0:D 1:E 2:F 3:E 4:A 5:T 6:  
+          +---+---+---+---+---+---+---+
+      0:F |   |   |   |   |   |   |   |
+          +---+---+---+---+---+---+---+
+      1:A |   |   |   |   |   |   |   |
+          +---+---+---+---+---+---+---+
+   T  2:T |   |   |   |   |   |   |   |
+          +---+---+---+---+---+---+---+
+      3:E |   |   |   |   |   |   |   |
+          +---+---+---+---+---+---+---+
+      4:  |   |   |   |   |   |   |   |
+          +---+---+---+---+---+---+---+
+```
+
+### Our recursive formulation
+
+```
+// Find the length of the longest common substring between S and T.
+lcs(S, T)
+  return lcs_kernel(S, 0, T, 0 )
+
+lcs_kernel(S, s, T, t) 
+  if (table[s,t] is empty)
+    if (s >= S.length) or (t >= T.length)
+      table[s,t] = 0
+    else if S[s] == T[t]
+      table[s,t] = 1 + lcs_kernel(S, s+1, T, t+1)
+    else
+      table[s,t] = max(lcs_kernel(S, s+1, T, t)         // Drop in S
+                       lcs_kernel(S, s, T, t+1))        // Drop in T
+  return table[s,t]
+```
+
+Our DP solution
+---------------
+
+Which of the approaches do you want to use (left to right or right to left)?
+
+* The recursive left-to-right will result in filling the table right-to-left
+  [THIS WINS]
+* The recursive right-to-left will result in filling the table left-to-right
+
+How might we initialize parts of the table?
+
+How do we fill in the rest of the table?
+
+```
+lcs(S,T)
+  lcs_table = fill_lcs(S, T)
+  return lcs_table[0,0]
+
+fill_lcs(S, T)
+  // Initialize
+
+  // Fill the rest
+  for ? = ? to ?
+     for ? = ? to ?
+       ?
+  return table
+```  
+
+Runtime
+-------
+
+Extracting the LCS
+------------------
+
+Once we've built the table, how can you extract the LCS?
+
+_Note that Problem Set 5 and Assessment 4 will ask a similar question._
+
+Our next problem: Edit distance
+-------------------------------
+
+Given two strings, $$S$$ and $$T$$, what is the fewest number of changes
+needed to convert $$S$$ to $$T$$?
+
+Valid changes: 
+
+* `delete(i)` - delete the letter at position `i` in `S`.
+* `insert(i,ch)` - insert the letter `ch` immediately before position `i`.
+* `replace(i,ch)` - replace the letter at position `i` with `ch`.
+  (This is often called `substitute`.)
+
+### Example 1: Turn "samr" into "spam"
+
+A bad approach
+
+                // "samr"
+delete(1)       // "smr"
+delete(1)       // "sr"
+delete(1)       // "s"
+insert(1, 'p')  // "sp"
+insert(2, 'a')  // "spa"
+insert(2, 'm')  // "spam"
+
+A less-bad approach
+
+```
+                // "samr"
+replace(1, 'p') // "spmr"
+replace(2, 'a') // "spar"
+replace(3, 'm') // "spam"
+```
+
+Can we do better?
+
+```
+                // "samr"
+```
+
+### Example 2: Turn "kitten" into "spliting"
+
+```
+                // "kitten"
+```
+
+### Example 3: Turn "spliting" into "kitten"
+
+```
+                // "splitting"
+```
+
+A recursive formulation
+-----------------------
+
+Write a recursive procedure, `ed(S,T)` that returns the _minimum_ edit
+distance between `S` and `T`.
+
+Things to think about:
+
+* What is our base case? (Are there base _cases_?)
+* What choices should we minimize between?
+* Is there a case in which we don't need to minimize?
+
+```
+ed(S, T)
+   // Base case(s)
+   if (?)
+   // Easy case
+   else if (?)
+   // Minimize
+   else
+     return min(ed(?),
+                ed(?),
+                ?)
+```
+
+The table
+---------
+
+* There are only two parameters, so we will use a two-dimensional table.
+* We will put the source string on the left and the target along the top.
+* A cell (row,col) represents `ed(S[0:row],T[0:col])`.
+* That is, the the edit distance 
+    * from the string consisting of the first `row` elements of `S`
+    * to the string consisting of the first `col` elements of `T`.
+
+```
+                 TARGET   
+                s   p   a   m
+            0   1   2   3   4
+          +---+---+---+---+---+
+        0 |   |   |   |   |   |
+  S       +---+---+---+---+---+
+  O  s  1 |   |   |   |   |   |
+  U       +---+---+---+---+---+
+  R  a  2 |   |   |   |   |   |
+  C       +---+---+---+---+---+
+  E  m  3 |   |   |   |   |   |
+          +---+---+---+---+---+
+     r  4 |   |   |   |   |   |
+          +---+---+---+---+---+
+```
+
+Note that we've flipped almost everything from our LCS solution.
+
+* We're doing the substring up to the column/row, rather than
+  starting at the column row.
+* That means that we'll find the solution in the lower-right corner
+  rather than the upper-left corner.
+* We've also flipped which axis is associated with each parameter.
+
+Making it iterative
+-------------------
+
+```
+ed(S,T)
+  edTable = fillTableED(S,T)
+  return edTable[S.length, T.length]
+
+fillTableED(S,T)
+  // Initialize
+  // Loop
+  for (row = ?; row ? ?; row++)
+    for (col = ?; col ? ?; col++)
+      CODE
+```
+
+Running time
+------------
+
+Extracting the edits
+--------------------
+
+```
+edits(S,T)
+  edTable = fillTableED(S,T)
+  return editsHelper(S, T, edTable, S.length, T.length, {})
+
+editsHelper(S, T, edTable, col, row, edits)
+  // If we reach the top left of the table, no edits are needed
+  if (col == 0) && (row == 0)
+    return edits
+  // If the target is empty, we need to ?
+  else if (col == 0)
+    ?
+  // If the source is empty, we need to ?
+  else if (row == 0)
+    ?
+  // If the current characters match, we don't need an edit here
+  else if S[row] == T[col]
+    return editsHelper(S, T, edTable, col-1, row-1, edits)
+  // At this point, we need an edit
+  else 
+    // Compute the best direction
+    best = min(edTable[row-1, col-1],   // Represents ?
+               edTable[row-1, col],     // Represents ?
+               edTable[row, col-1])     // Represents ?
+    if (edTable[row-1, col-1] == best)
+      edits.append(?)
+      return editsHelper(S, T, edTable, row-1, col-1, edits)
+    else if (edTable[row-1, col] == best)
+      edits.append(?)
+      return editsHelper(S, T, edTable, row-1, col, edits)
+    else
+      edits.append(?)
+      return editsHelper(S, T, edTable, row, col-1, edits)
+```
