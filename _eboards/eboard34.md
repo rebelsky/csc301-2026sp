@@ -16,18 +16,22 @@ _Approximate overview_
 * Our next problem: Longest common subsequence
     * The problem
     * A recursive approach
-    * Considering the running time
     * Building the table
     * Rewriting the recursive approach with the table
     * Making it iterative
     * Revising the running time
     * Extracting the LCS
-* And one more problem: Approximate matching
+* And one more problem: Edit distance
     * The problem
     * A recursive approach
 
 Administrative stuff
 --------------------
+
+* I keep wondering what would happen if no one showed up for class.
+  Would I still teach and record?
+* Sorry about missing office hours this a.m. The extra hour of sleep was
+  necessary. I should be in my office from about 1--4pm if you want to chat.
 
 ### Upcoming events
 
@@ -59,6 +63,17 @@ Administrative stuff
 
 ### Policy/administrative/assignment questions
 
+Will we have a chance to redo Assessment 4?
+
+> Yes. Our goal is to grade that on the weekend of the 8th.
+
+What about PS 5 and Project 5?
+
+> We're less certain about those. We would hope to have those back to you
+  by Wednesday the 13th.
+
+> Self Gov says that you should finish those early so that those who can't
+  finish them early get theirs graded more quickly.
 
 Sam's Opening Questions
 -----------------------
@@ -67,8 +82,10 @@ Sam's Opening Questions
   the axes?)
 * Write the algorithm to fill it out iteratively.
 
-Longest common subsequences
----------------------------
+Review
+------
+
+### Longest common subsequences
 
 Given two strings, $$S = s_1, s_2, ..., s_n$$ and $$T = t_1, t_2, ... t_m$$, 
 find the longest possible matching substrings in $$S$$ and $$T$$, where
@@ -83,8 +100,7 @@ S   a b x g r y i p n
 T   g r x p i y n o
 ```
 
-A recursive formulation
------------------------
+### Two recursive formulations
 
 Write `lcs(S,T)` which gives the length of the longest common substring
 between S and T.
@@ -121,57 +137,131 @@ Designing the table
 
 How many dimensions?
 
+* Three [Nope]
+* Two [x2]
+
 What are they?
 
-A recursive formlation, revisited
----------------------------------
+* The index into S
+* The index into T
+
+A recursive formulation, revisited
+----------------------------------
+
+How do we update this to use the table?
 
 ```
 // Find the length of the longest common substring between S and T.
 // Note: 
 lcs(S, T)
-  return lcs_kernel(S, T, ...)
+  return lcs_kernel(S, 0, T, 0 )
 
-lcs_kernel(S, T, ...):
-  if (S is empty) or (T is empty)
-    return 0
-  else if S[0] == T[0]
-    return 1 + lcs_kernel(S, T, ...)
-  else
-    return max(lcs_kernel(S, T, ...)
-               lcs_kernel(S, T, ...))
+lcs_kernel(S, s, T, t) 
+  if (table[s,t] is empty)
+    if (s >= S.length) or (t >= T.length)
+      table[s,t] = 0
+    else if S[s] == T[t]
+      table[s,t] = 1 + lcs_kernel(S, s+1, T, t+1)
+    else
+      table[s,t] = max(lcs_kernel(S, s+1, T, t)         // Drop in S
+                       lcs_kernel(S, s, T, t+1))        // Drop in T
+  return table[s,t]
 ```
 
-Our example, continued
-----------------------
+* What do you do now that you have `s` and `t` (and don't change `S` and `T`)
+* When should you look in the table?
+* When should you store in the table?
+
+An example
+----------
+
+`defeat` vs. `fate`
 
 ```
-     0:  1:  2:  3:  4:  5:  6:  7:  8: 
-    +---+---+---+---+---+---+---+---+---+
-0:0 |   |   |   |   |   |   |   |   |   |
-    +---+---+---+---+---+---+---+---+---+
-1:1 |   |   |   |   |   |   |   |   |   |
-    +---+---+---+---+---+---+---+---+---+
-2:2 |   |   |   |   |   |   |   |   |   |
-    +---+---+---+---+---+---+---+---+---+
-3:3 |   |   |   |   |   |   |   |   |   |
-    +---+---+---+---+---+---+---+---+---+
-4:4 |   |   |   |   |   |   |   |   |   |
-    +---+---+---+---+---+---+---+---+---+
-5:5 |   |   |   |   |   |   |   |   |   |
-    +---+---+---+---+---+---+---+---+---+
-6:6 |   |   |   |   |   |   |   |   |   |
-    +---+---+---+---+---+---+---+---+---+
-7:7 |   |   |   |   |   |   |   |   |   |         
-    +---+---+---+---+---+---+---+---+---+
+              S (indexed by s)
+     0:D 1:E 2:F 3:E 4:A 5:T 6:  
+    +---+---+---+---+---+---+---+
+0:F | M |   | 3 |   |   |   |   |
+    +---+---+---+---+---+---+---+
+1:A | 2 | 2 | 2 | 2 | 2 |   |   |
+    +---+---+---+---+---+---+---+
+2:T | 1 | 1 | 1 | 1 | 1 | 1 |   |
+    +---+---+---+---+---+---+---+
+3:E | 1 | 1 | 1 | 1 | 0 | 0 | 0 |
+    +---+---+---+---+---+---+---+
+4:  | 0 |   | 0 |   | 0 | 0 |   |
+    +---+---+---+---+---+---+---+
 
 Stack: 
+max(0,0) k(1,0) 
+max(0,0) k(1,0) max(0,1) 
+max(0,0) k(1,0) max(0,1) max(1,1) 
+max(0,0) k(1,0) max(0,1) max(1,1) max(2,1) 
+max(0,0) k(1,0) max(0,1) max(1,1) max(2,1) max(3,1) 
+max(0,0) k(1,0) max(0,1) max(1,1) max(2,1) max(3,1) inc(4,1) 
+max(0,0) k(1,0) max(0,1) max(1,1) max(2,1) max(3,1) inc(4,1) k(5,2)
+max(0,0) k(1,0) max(0,1) max(1,1) max(2,1) max(3,1) k(4,1) 
+max(0,0) k(1,0) max(0,1) max(1,1) max(2,1) max(3,1) k(4,1) 
+max(0,0) k(1,0) max(0,1) max(1,1) max(2,1) max(3,1) k(4,1) k(3,2)
+max(0,0) k(1,0) max(0,1) max(1,1) max(2,1) k(3,1) 
+max(0,0) k(1,0) max(0,1) max(1,1) max(2,1) k(3,1) 
+max(0,0) k(1,0) max(0,1) max(1,1) max(2,1) k(3,1) k(2,2)
+max(0,0) k(1,0) max(0,1) max(1,1) k(2,1) 
+max(0,0) k(1,0) max(0,1) k(1,1) 
+max(0,0) k(1,0) max(0,1) k(1,1) 
+max(0,0) k(1,0) max(0,1) k(1,1) max(0,2) 
+max(0,0) k(1,0) max(0,1) k(1,1) max(0,2) max(1,2) 
+max(0,0) k(1,0) max(0,1) k(1,1) max(0,2) max(1,2) max(2,2) 
+max(0,0) k(1,0) max(0,1) k(1,1) max(0,2) max(1,2) max(2,2) max(3,2) 
+max(0,0) k(1,0) max(0,1) k(1,1) max(0,2) max(1,2) max(2,2) max(3,2) k(3,3) 
+max(0,0) k(1,0) max(0,1) k(1,1) max(0,2) max(1,2) max(2,2) max(3,2) k(3,3) max(4,2) 
+max(0,0) k(1,0) max(0,1) k(1,1) max(0,2) max(1,2) max(2,2) max(3,2) k(3,3) max(4,2) 
+max(0,0) k(1,0) max(0,1) k(1,1) max(0,2) max(1,2) max(2,2) max(3,2) k(3,3) max(4,2) k(5,2) 
+max(0,0) k(1,0) max(0,1) k(1,1) max(0,2) max(1,2) max(2,2) max(3,2) k(3,3) max(4,2) k(5,2) max(4,3) max(5,3) 
+max(0,0) k(1,0) max(0,1) k(1,1) max(0,2) max(1,2) max(2,2) max(3,2) k(3,3) max(4,2) k(5,2) max(4,3) max(5,3) k(6,3) k(5,4)
+max(0,0) k(1,0) max(0,1) k(1,1) max(0,2) max(1,2) max(2,2) max(3,2) k(3,3) max(4,2) k(5,2) max(4,3) k(5,3) 
+max(0,0) k(1,0) max(0,1) k(1,1) max(0,2) max(1,2) max(2,2) max(3,2) k(3,3) max(4,2) k(5,2) max(4,3) k(5,3) k(4,4)
+max(0,0) k(1,0) max(0,1) k(1,1) max(0,2) max(1,2) max(2,2) max(3,2) k(3,3) max(4,2) k(5,2) k(4,3)
+max(0,0) k(1,0) max(0,1) k(1,1) max(0,2) max(1,2) max(2,2) max(3,2) k(3,3) k(4,2)
+max(0,0) k(1,0) max(0,1) k(1,1) max(0,2) max(1,2) max(2,2) max(3,2) k(3,3) k(4,2)
+max(0,0) k(1,0) max(0,1) k(1,1) max(0,2) max(1,2) max(2,2) k(3,2) 
+max(0,0) k(1,0) max(0,1) k(1,1) max(0,2) max(1,2) max(2,2) k(3,2) max(2,3) inc(3,3) 
+max(0,0) k(1,0) max(0,1) k(1,1) max(0,2) max(1,2) max(2,2) k(3,2) max(2,3) inc(3,3) k(4,4)
+max(0,0) k(1,0) max(0,1) k(1,1) max(0,2) max(1,2) max(2,2) k(3,2) max(2,3) k(3,3) 
+max(0,0) k(1,0) max(0,1) k(1,1) max(0,2) max(1,2) max(2,2) k(3,2) max(2,3) k(3,3) k(2,4)
+max(0,0) k(1,0) max(0,1) k(1,1) max(0,2) max(1,2) max(2,2) k(3,2) k(2,3)
+max(0,0) k(1,0) max(0,1) k(1,1) max(0,2) max(1,2) k(2,2) 
+max(0,0) k(1,0) max(0,1) k(1,1) max(0,2) k(1,2) 
+max(0,0) k(1,0) max(0,1) k(1,1) max(0,2) k(1,2) max(0,3) 
+max(0,0) k(1,0) max(0,1) k(1,1) max(0,2) k(1,2) max(0,3) inc(1,3) k(2,4)
+max(0,0) k(1,0) max(0,1) k(1,1) max(0,2) k(1,2) max(0,3) k(1,3) 
+max(0,0) k(1,0) max(0,1) k(1,1) max(0,2) k(1,2) max(0,3) k(1,3) k(0,4)
+max(0,0) k(1,0) max(0,1) k(1,1) max(0,2) k(1,2) k(0,3)
+max(0,0) k(1,0) max(0,1) k(1,1) k(0,2)
+max(0,0) k(1,0) k(0,1)
+k(0,0)
 ```
+
+Stack notation:
+
+* `max(i,j)` - do the maximum computation in cell `i`, `j`.
+* `inc(i,j)` - the increment computation in cell `i`, `j`.
+* `k(i,j)` - do the kernel computation for cell `i`, `j`.
+* The "state" of the stack will be a row of calls
+* We'll keep track of the full history, oldest at bottom.
+
+Notes:
+
+* What is `lcs("E", "DEFEAT")` is `"E"` or length 1
 
 Our DP solution
 ---------------
 
 Which of the approaches do you want to use (left to right or right to left)?
+
+* The recursive left-to-right will result in filling the table right-to-left
+  [THIS WINS]
+* The recursive right-to-left will result in filling the table left-to-right
 
 How might we initialize parts of the table?
 
@@ -180,13 +270,19 @@ How do we fill in the rest of the table?
 ```
 lcs(S,T)
   lcs_table = fill_lcs(S, T)
+  return lcs_table[0,0]
 
 fill_lcs(S, T)
+  // Initialize
+
+  // Fill the rest
   for ? = ? to ?
      for ? = ? to ?
        ?
   return table
 ```  
+
+WE STOPPED HERE!
 
 Runtime
 -------
