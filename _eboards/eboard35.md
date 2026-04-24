@@ -23,19 +23,31 @@ _Approximate overview_
     * Designing the table
     * Making it iterative
     * Extracting the actions
+* Notes on Project 5
 
 Administrative stuff
 --------------------
+
+* Please fill ou the AI use survey at
+  <https://grinnell.co1.qualtrics.com/jfe/form/SV_88Md19LJ12t6kFU>
+    * Do you think PM intentionally made the link end in FU?
+* Problem Set 4 (problems 1 and 2) returned.
+    * Many issues, esp. with 4.2.
+* We should wrap up Dynamic Programming on Monday. Then we're in the
+  "downhill stretch" (or something like that).
 
 ### Upcoming events
 
 * Monday, 2026-04-27, 7:00 p.m., 3819, _Mentor Session_
 * Thursday, 2026-04-30, 4:15--5:15pm, _Thursday Extra_ (?)
 * Thursday, 2026-04-30, 7:00 p.m., _Mentor Session_
+* Thursday, 2026-04-30, _Trustees on Campus_
 * Friday, 2025-05-01, 5:00 p.m.: _CS Picnic_
 
 ### Upcoming deadlines
 
+* TODAY, 2026-04-24: Slightly late Assessment 3
+    * Sam plans to start grading Saturday morning.
 * Friday, 2026-05-01: _Early Deadline_ for Problem Set 5
 * Friday, 2026-05-01: _Early Deadline_ for Project 5
 * Friday, 2026-05-08: Problem Set 5 due
@@ -46,17 +58,41 @@ Administrative stuff
 
 ### Other upcoming dates
 
-* TODAY, 2026-04-24: Project 5 distributed
-* Friday, 2026-05-01: Assessment 4 distributed (only one problem!)
+* TODAY, 2026-04-24: Project 5 distributed (end of class)
+* Friday, 2026-05-01: Assessment 4 distributed (only one problem, but long)
+    * I may distribute it earlier.
 
-### Project 5
+### About PS 4.1 (Counter-Examples)
 
-* Edit distance! (Today's problem.)
+* Many of the issues seemed to stem from a misreading of the problem.
+  For example, for greedy coat assignment, you want to minimize the
+  largest disparity, not the sum of the disparities.
+    * These days, getting the goal wrong also has a problematic implication.
 
+### About PS 4.2 (Greedy Well Placement)
+
+* Many people stated the algorithm informally. That's a nice start, but
+  something with a bit more details (such as pseudocode) helps, particularly 
+  if you want to prove something about it.
+    * I saw loop invariants without explicit loops.
+* If you're doing a proof by induction, please make sure to state your
+  inductive claim clearly. Not "the algorithm works", but rather what
+  it means that the algorithm works.
+* When you're doing a proof by induction (or the variant of using a loop
+  invariant), all the information you want to rely on needs to be in
+  the inductive hypothesis (or the loop invariant).
+    * "The greedy algorithm has created a minimal well placement for
+      $$i$$ houses" may not be enough. For example, if $$h_1 = 0$$,
+      the placement $$w_1 = 0$$ is a minimal placement for one house. 
+      However, it would not be an optimal placement for two hosues
+      if $$h_2 = 4$$.
+    * Similarly, "After $$i$$ iterations of the outer loop, we have
+      optimally placed the first $$i$$ wells" is insufficient.
+      
 ### Policy/administrative/assignment questions
 
-Sam's Opening Questions
------------------------
+Sam's Opening Question
+----------------------
 
 * Write the algorithm to fill out the LCS table iteratively.
 
@@ -167,7 +203,7 @@ delete(1)       // "sr"
 delete(1)       // "s"
 insert(1, 'p')  // "sp"
 insert(2, 'a')  // "spa"
-insert(2, 'm')  // "spam"
+insert(3, 'm')  // "spam"
 
 A less-bad approach
 
@@ -312,3 +348,20 @@ editsHelper(S, T, edTable, col, row, edits)
       edits.append(?)
       return editsHelper(S, T, edTable, row, col-1, edits)
 ```
+
+We can also make this iterative.
+
+```
+```
+
+Project 5
+---------
+
+* Edit distance! (Today's problem.)
+* Four parts!
+    * Generate the table iteratively.
+    * Generate the table recursively (using memoization).
+    * Extract the edits.
+    * Solve a similar problem and gather data.
+* Warning: More time consuming than Project 4.
+* We've included a Q&A page, too. I'll try to let you know if I update it.
