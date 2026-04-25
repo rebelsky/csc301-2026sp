@@ -14,6 +14,7 @@ _Approximate overview_
 * Administrative stuff
 * Opening questions
 * Our current problem: Longest common subsequence
+    * Review
     * Making it iterative
     * Revising the running time
     * Extracting the LCS
@@ -28,20 +29,25 @@ _Approximate overview_
 Administrative stuff
 --------------------
 
-* Please fill ou the AI use survey at
+* It has been suggested that enough crud is going around campus that
+  you should consider wearing masks.
+* Please fill out the AI use survey at
   <https://grinnell.co1.qualtrics.com/jfe/form/SV_88Md19LJ12t6kFU>
     * Do you think PM intentionally made the link end in FU?
 * Problem Set 4 (problems 1 and 2) returned.
     * Many issues, esp. with 4.2.
 * We should wrap up Dynamic Programming on Monday. Then we're in the
   "downhill stretch" (or something like that).
+* Consider the CS picnic next Friday. Sign up at
+  <https://grinnell.co1.qualtrics.com/jfe/form/SV_6D9DakDp7we662i>
+* Voting is open for next year's SEPC.
 
 ### Upcoming events
 
 * Monday, 2026-04-27, 7:00 p.m., 3819, _Mentor Session_
 * Thursday, 2026-04-30, 4:15--5:15pm, _Thursday Extra_ (?)
 * Thursday, 2026-04-30, 7:00 p.m., _Mentor Session_
-* Thursday, 2026-04-30, _Trustees on Campus_
+* Thursday, 2026-04-30, _Trustees on Campus_ (dessert with students?)
 * Friday, 2025-05-01, 5:00 p.m.: _CS Picnic_
 
 ### Upcoming deadlines
@@ -91,6 +97,8 @@ Administrative stuff
       
 ### Policy/administrative/assignment questions
 
+_None_
+
 Sam's Opening Question
 ----------------------
 
@@ -111,15 +119,15 @@ Review of LCS to date
                     S (indexed by s)
            0:D 1:E 2:F 3:E 4:A 5:T 6:  
           +---+---+---+---+---+---+---+
-      0:F |   |   |   |   |   |   |   |
+      0:F |   |   |   |   |   |   | 0 |
           +---+---+---+---+---+---+---+
-      1:A |   |   |   |   |   |   |   |
+      1:A |   |   |   |   |   |   | 0 |
           +---+---+---+---+---+---+---+
-   T  2:T |   |   |   |   |   |   |   |
+   T  2:T |   |   |   |   |   |   | 0 |
           +---+---+---+---+---+---+---+
-      3:E |   |   |   |   |   |   |   |
+      3:E |   |   |   |   |   |   | 0 |
           +---+---+---+---+---+---+---+
-      4:  |   |   |   |   |   |   |   |
+      4:  | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
           +---+---+---+---+---+---+---+
 ```
 
@@ -161,17 +169,44 @@ lcs(S,T)
   return lcs_table[0,0]
 
 fill_lcs(S, T)
-  // Initialize
+  // Initialize (fill in the last row and column)
+  for (col = 0; col <= S.length; col++)
+    table[T.length, col] = 0
+  
+  for (row = 0; row <= T.length; row++) 
+    table[row, S.length] = 0;
 
   // Fill the rest
-  for ? = ? to ?
-     for ? = ? to ?
-       ?
+  for (row = T.length-1; row >=0; row--) 
+     for (col = S.length-1; col >= 0; col--) 
+       if (S[col] == T[row])
+         table[row,col] = 1 + table[row+1,col+1]
+       else 
+         table[row,col] = max(table[row+1, col], table[row, col+1])
   return table
 ```  
 
+```
+                    S (indexed by s)
+           0:D 1:E 2:F 3:E 4:A 5:T 6:  
+          +---+---+---+---+---+---+---+
+      0:F | 3 | 3 | 3 | 2 | 2 | 1 | 0 |
+          +---+---+---+---+---+---+---+
+      1:A | 2 | 2 | 2 | 2 | 2 | 1 | 0 |
+          +---+---+---+---+---+---+---+
+   T  2:T | 1 | 1 | 1 | 1 | 1 | 1 | 0 |
+          +---+---+---+---+---+---+---+
+      3:E | 1 | 1 | 1 | 1 | 0 | 0 | 0 |
+          +---+---+---+---+---+---+---+
+      4:  | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+          +---+---+---+---+---+---+---+
+```
+
 Runtime
 -------
+
+The iterative algorithm should be $$O(|S|x|T|)$$ because the table is
+that size and we can fill in each cell in constant time..
 
 Extracting the LCS
 ------------------
@@ -179,6 +214,24 @@ Extracting the LCS
 Once we've built the table, how can you extract the LCS?
 
 _Note that Problem Set 5 and Assessment 4 will ask a similar question._
+
+Approach one: Walk the first row, any time you drop the value, add the character.
+
+```
+extractLCS(S,T,table)
+  lcs = {};
+  row = 0, col = 0
+  while (row < S.length && col < T.length) 
+    if (S[col] = T[row]) 
+      lcs.push(S[col])
+      row += 1
+      col += 1
+    else if (table[row,col] == table[row+1,col])
+      row += 1
+    else
+      col += 1
+  return lcs
+```
 
 Our next problem: Edit distance
 -------------------------------
@@ -218,19 +271,24 @@ Can we do better?
 
 ```
                 // "samr"
+insert(1, 'p')  // "spamr"
+delete(3)       // "spam"
 ```
 
 ### Example 2: Turn "kitten" into "spliting"
 
 ```
                 // "kitten"
-```
-
-### Example 3: Turn "spliting" into "kitten"
-
-```
+delete(0)       // "itten"
+insert(0,'s')   // "sitten"
+insert(1,'p')   // "spitten"
+insert(2,'l')   // "splitten"
+insert(6,'i')   // "splittin"
+insert(8,'g')   // "splitting"
                 // "splitting"
 ```
+
+Iimprove by making the first step `replace(0, 's')`
 
 A recursive formulation
 -----------------------
@@ -242,19 +300,27 @@ Things to think about:
 
 * What is our base case? (Are there base _cases_?)
 * What choices should we minimize between?
-* Is there a case in which we don't need to minimize?
+* Is there a case in which we don't need to minimize? (Is it similar to LCS)
 
 ```
 ed(S, T)
    // Base case(s)
-   if (?)
+   if (S == T)
+     return 0
+   else if (S.length == 0)
+     return T.length
+   else if (T.length == 0)
+     return S.length
+
    // Easy case
-   else if (?)
+   else if S[0] == T[0]
+     return ed(S.substring(1), T.substring(1))
    // Minimize
    else
-     return min(ed(?),
-                ed(?),
-                ?)
+     return min(1 + ed(S.substring(1), T), // delete first character of S
+                1 + ed(S, T.substring(1)), // insert first character of T at start of S
+                1 + ed(S.substring(1), 
+                       T.substring(1)))    // replace first character of S with 1st of T
 ```
 
 The table
@@ -291,6 +357,8 @@ Note that we've flipped almost everything from our LCS solution.
 * That means that we'll find the solution in the lower-right corner
   rather than the upper-left corner.
 * We've also flipped which axis is associated with each parameter.
+
+QUESTION: HOW DO WE DO THIS ITERATRIVELY
 
 Making it iterative
 -------------------
