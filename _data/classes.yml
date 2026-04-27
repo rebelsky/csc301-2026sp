@@ -133,8 +133,9 @@
   abbrev: dp-05
   notes: ../eboards/eboard35.html
 
-- topic: 'Dynamic programming 6: Worksheet'
+- topic: 'Dynamic programming 6: Wrapup'
   abbrev: dp-06
+  notes: ../eboards/eboard36.html
 
 - topic: Balanced search trees 1
   abbrev: balanced-trees-1
@@ -145,8 +146,8 @@
 - topic: Ethics
   abbrev: ethics
 
-- topic: Advanced algorithms topics
-  abbrev: advanced-algorithms
+- topic: Pause for breath
+  abbrev: pause-14
 
 - topic: Wrapup
   abbrev: wrapup
