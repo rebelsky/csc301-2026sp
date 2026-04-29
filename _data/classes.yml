@@ -139,15 +139,16 @@
 
 - topic: Balanced search trees 1
   abbrev: balanced-trees-1
+  notes: ../eboards/eboard37.html
 
 - topic: Balanced search trees 2
   abbrev: balanced-trees-2 
 
-- topic: Ethics
-  abbrev: ethics
+- topic: Ethics 1
+  abbrev: ethics-1
 
-- topic: Pause for breath
-  abbrev: pause-14
+- topic: Ethics 2
+  abbrev: ethics-2
 
 - topic: Wrapup
   abbrev: wrapup
