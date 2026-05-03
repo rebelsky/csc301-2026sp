@@ -181,7 +181,7 @@
     - { date: 2026-05-05 }
     - { date: 2026-05-06, class: true }
     - { date: 2026-05-07 }
-    - { date: 2026-05-08, class: true }
+    - { date: 2026-05-08 }
     - { date: 2026-05-09 }
 
 - week: "Finals Week"

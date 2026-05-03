@@ -147,12 +147,25 @@
 
 - topic: Ethics 1
   abbrev: ethics-1
+  reading:
+    - link: Munro, Dan. 2018. Feynman's Error.
+      url: https://www.danmunro.ca/blog/2018/11/29/feynmans-error-on-ethical-thinking-and-drifting-nbsp
+    - link: Noble, Safiya Umoia. 2017. _Algorithms of Oppression_, Introduction.
+      url: https://www.jstor.org/stable/j.ctt1pwt9w5
+    - link: Cahan, E.M., Hernandez-Boussard, T., Thadaney-Israni, S. et al. 2019.  Putting the data before the algorithm in big data addressing personalized healthcare. _npj Digit. Med._ 2, 78. <https://doi.org/10.1038/s41746-019-0157-2>.
+      url: https://www.nature.com/articles/s41746-019-0157-2
+    - link: Barocas, S. and Selbst, Andrew D. 2016.  Big Data's Disparate Impact.  _California Law Review_, Vol. 104, No. 3, pp. 671-732. 
+      url: https://www.jstor.org/stable/24758720
+    - link: Ledford, Heidi. 2019. Millions of black people affected by racial bias in health-care algorithms. _Nature_.
+      url: https://www.nature.com/articles/d41586-019-03228-6
+    - link: Bolukbasi, Tolga _et al_. 2016. Man is to Computer Programmer as Woman is to Homemaker? Debiasing Word Embeddings. In _Proceedings of the NIPS 2016 Conference on Neural Information Processing Systems_.
+      url: https://proceedings.neurips.cc/paper_files/paper/2016/file/a486cd07e4ac3d270571622f4f316ec5-Paper.pdf
+    - link: Caliskan, Aylin _et al._ 2017. Semantics derived automatically from language corpora contain human-like biases. _Science_ 356, 183-186. DOI:10.1126/science.aal4230.
+      url: https://www.science.org/doi/full/10.1126/science.aal4230
+  notes: ../eboards/eboard39.html
 
-- topic: Ethics 2
+- topic: Ethics 2 and Wrapup
   abbrev: ethics-2
-
-- topic: Wrapup
-  abbrev: wrapup
 
 - topic: All Work Due
   abbrev: finals
