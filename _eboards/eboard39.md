@@ -273,7 +273,7 @@ Removal in BSTs
 Removal in AVL Trees
 --------------------
 
-**Gilliganed**
+**Skipped**
 
 Ethics
 ------
