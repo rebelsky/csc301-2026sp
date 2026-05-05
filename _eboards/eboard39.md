@@ -13,7 +13,14 @@ _Approximate overview_
 
 * Administrative stuff
 * BSTs, concluded
+    * Examine our insertion code
+    * Extend insertion code to balance the tree (using AVL)
+    * Write removal code
+    * Extend removal code to balance the tree (using AVL)
 * Ethics, initiated
+    * Why we do this?
+    * Relationship between algorithms and ethics
+    * Initial conversations about readings
 
 Administrative stuff
 --------------------
@@ -24,6 +31,15 @@ Administrative stuff
      * When you resubmit an assessment, please make sure to include a reflection!
        (What did you do wrong? Why? How did you fix it? How can you avoid 
         similar problems in the future? Etc.)
+     * When you resubmit an assessment, you still have to give a correct
+       solution.
+     * When you resubmit an assessment, you do not have to record your time.
+* Hints for Project 5
+     * Keep whiteboards handy to diagram things
+     * Be careful tracing
+     * Make sure you understand what direction represents
+     * Choose your direction for filling out the table carefully 
+       **lower-right to upper-left** or upper-left to lower-right.
 * Wednesday will be our last class for the semester. Please attend to fill
   out the End-of-Course Survey. And please bring a device.
 * I figured out the problem with our code: I wasn't flushing the buffer. Duh.
@@ -31,6 +47,7 @@ Administrative stuff
 ### Upcoming events
 
 * Monday, 2026-05-04, 7:00 p.m., 3819, _Mentor Session_
+* Monday, 2026-05-04, 7:00 p.m., 3821, _Board Game Guided Reading Demo Night_
 * Thursday, 2026-05-07, Noon, HSSC A1231, _Student Seminar on GenAI_
 * Thursday, 2026-05-07, 4:15--5:15pm, _Thursday Extra_ (maybe)
 * Thursday, 2026-05-07, 7:00 p.m., _Our last Mentor Session_
@@ -78,6 +95,11 @@ Did you miss anything about the grading policy?
   satisfactory on at least one assessment and at least one project.
   I hope that won't be an issue.
 
+If I already have satisfactory on seven assessments, do I have to do
+the 8th assessment?
+
+> Yes, you must make a valiant attempt at everything!
+
 Review: Insertion in BSTs
 -------------------------
 
@@ -85,10 +107,69 @@ Our code seems to work.
 
 What are some experiments you'd like to carry out?
 
+Um We Are Talking About
+
+```
+U:Um [2]
+ l A:About [1]
+ l  r T:Talking [0]
+ r W:We [0]
+```
+
+The entire alphabet in order: A B C D E F G H I J
+
+```
+A:A [9]
+ r B:B [8]
+ r  r C:C [7]
+ r  r  r D:D [6]
+ r  r  r  r E:E [5]
+ r  r  r  r  r F:F [4]
+ r  r  r  r  r  r G:G [3]
+ r  r  r  r  r  r  r H:H [2]
+ r  r  r  r  r  r  r  r I:I [1]
+ r  r  r  r  r  r  r  r  r J:J [0]
+```
+
+Nothing
+
+```
+```
+
+One thing
+
+```
+O:One [0]
+```
+
+Replacing one thing: Foo Fu
+
+```
+-------------------------
+INSERTING F:Foo
+
+F:Foo [0]
+-------------------------
+INSERTING F:Fu
+
+F:Fu [0]
+-------------------------
+```
+
+A tongue twister: She Sells Seashells By The Sea Shore
+
+```
+S:Shore [1]
+ l B:By [0]
+ r T:The [0]
+```
+
 Insertion in AVL Trees
 ----------------------
 
 How would you update this code to make it an AVL tree?
+
+* You have an `int BST.height(BSTNode<K,V> node)` method available to you.
 
 ```
   /**
@@ -113,12 +194,55 @@ How would you update this code to make it an AVL tree?
         root.setRight(insert(root.right(), key, value));
       } // inner if/else
     } // if/else
-    return root;
+    return rebalance(root);
   } // insert
+
+  BSTNode<K,V> rebalance(BSTNode node) {
+    // If the left subtree is too tall
+    if (BSTNode.height(node.left()) - BSTNode.height(node.right()) > 1) {
+      BSTNode<K,V> left = node.left();
+      // The easy case
+      if (BSTNode.height(left.left()) > BSTNode.height(left.right()) {
+        return rotateRight(node);
+      }
+      // The hard case
+      else {
+        node.setLeft(rotateLeft(node.left()));
+        return rotateRight(node);
+      }
+    }
+    // If the right subtree is too tall
+    else if (BSTNode.height(node.right()) - BSTNode.height(node.left()) > 1) {
+      BSTNode<K,V> right = node.right();
+      // The easy case
+      if (BSTNode.height(right.right()) > BSTNode.height(right.left()) {
+        return rotateLeft(node);
+      }
+      // The hard case
+      else {
+        node.setRight(rotateRight(node.right()));
+        return rotateLeft(node);
+      }
+    }
+    // No rebalance needed
+    else {
+      return node;
+    } 
+  } // rebalance
+
+  BSTNode<K,V> rotateRight(BSTNode<K,V> node) {
+    BSTNode<K,V> sub = node.left();
+    node.setLeft(sub.right());
+    sub.setRight(node);
+    return sub;
+  } // rotateRight
 ```
+
 
 Removal in BSTs
 ---------------
+
+**Skipped**
 
 ```
   /**
@@ -149,6 +273,8 @@ Removal in BSTs
 Removal in AVL Trees
 --------------------
 
+**Gilliganed**
+
 Ethics
 ------
 
@@ -160,13 +286,58 @@ _Background reflection_
 
 What is an algorithm?
 
+> A set of unambiguous instructions that take an input and convert that 
+  input into a desired output in finite time.
+
 Can algorithms be biased?
 
-Can the kinds of algorithms we write in this class be biased?
+> Yes. An algorithm might consider irrelevant knowledge.
 
-What kinds of "algorithms" are discussed in the readings?
+```
+boolean admit(Student s) {
+  int score = evaluate(s);
+  if (s.name.contains("y")) {
+    score += 5;
+  }
+  return (score > 100);
+}
+```
 
-Are these algorithms?
+> Not all biases are bad. Ones that consider "irrelevant" knowledge
+  in making their decisions probably are.
+
+Can the kinds of algorithms we write in this class be biased? 
+E.g., Can a sorting algorithm be biased? Can a string matching
+algorithm that uses dynamic programming be biased?
+
+* A sorting algorithm may exhibit bias based on the comparison criteria.
+* The use of a sorting algorithm may be biased (e.g., because of the
+  comparison criteria).
+* The original ordering of elements can affect the result of a sorting
+  algorithm.
+    * The choice of what to do when two elements or equal can bias a
+      sorting algorithm.
+* We can use sorting algorithms in ways that show bias (or are problematic)
+  even if they don't seem to be.
+    * UI design: Wouldn't it be nice if we provided an autocomplete function?
+    * Suppose there are multiple completion options
+    * We should provide them in sorted order
+* The Gale-Shapley algorithm is biased towards those making offers.
+* In dynamic programming, we're often maximizing (minimizing) between
+  multiple choices. If two are equal, we make a choice.
+
+What kinds of "algorithms" are discussed in the readings? 
+E.g., the results of a machine learning algorithm, a large language model.
+Why would Sam say "these aren't algorithms"?
+
+* Most AI-related "algorithms" are non-deterministic. Is that the same
+  as unambiguous? `boolean heads() {return Math.random() > 0.5;}`
+* Most AI-related "algorithms" are "black boxes"; we can't see what the
+  instructions are, or at least we can't comprehend the instructions.
+* They have "algorithmic behavior" (JC); that is, they followo unamibiguous
+  instructions to convert an input to an output.
+
+Is there a difference between these "algorithms"
 
 Ideas from the Readings
 -----------------------
