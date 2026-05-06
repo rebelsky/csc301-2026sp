@@ -12,14 +12,33 @@ link: true
 _Approximate overview_
 
 * Administrative stuff
-* Ethics, continued
-* Class wrapup
-* End-of-class surveys
-* Final comments
+* Ethics, continued (until 10:30ish)
+* Class wrapup (until 10:45ish)
+* End-of-class surveys (until you are done)
+* Final comments (until I am done or 11:20, whichever comes first)
 
 Administrative stuff
 --------------------
 
+* I finished grading all the assessments (including resubmissions) and 
+  projects 2–5 (including resubmissions) that I received by 7pm last night. 
+  Let me know if something is missing. I'll be working on revisiting the
+  assessments and grading the problem sets starting tomorrow.
+    * If there's something you'd like me to prioritize, let me know and
+      I'll do my best.
+* Reminder: You _must_ submit a reflection for an assessment resubmission.
+* Reminder: You will almost always prove the correctness of a greedy
+  algorithm via a proof by contradiction. In some cases, you may also need
+  to add some induction. (E.g., you use induction over the corresponding
+  elements of the optimal and greedy solutions.)
+* If you are considering an incomplete in CSC-301 ...
+    * Incompletes must be submitted by Monday, May 11.
+    * You should discuss the incomplete with me.
+    * Historically, I've followed the CAS recommendation to allow an incomplete
+      on only one missing item. Given the complexities of this semester, I
+      will permit incompletes on up to three missing Gradescope items.
+    * If you take an incomplete on a project, you will need to make it up on
+      your own.
 * I'm done with office hours for the semester. However, I expect to be
   around a lot next week. If you'd like to meet with me, drop me a message
   on Teams or via Email. (You can also check to see if I'm in the office.)
@@ -58,17 +77,57 @@ Homemaker? Debiasing Word Embeddings. In _Proceedings of the NIPS 2016 Conferenc
 
 ### Policy/administrative/assignment questions
 
-"Ethics", Continued
--------------------
+"Ethics", Continued (TPS)
+-------------------------
+
+What parts of the readings particularly interested/concerned/etc you?
+
+* What was "Feynman's Error"?
+
+Did anyone conduct experiments after doing the readings?
+
+What responsibilities will (should) you consider as a computing professional? 
+
+What should CS@Grinnell teach about these kinds of issues? Where?
 
 Review of the Semester (or half semester)
 -----------------------------------------
 
+_You've had to deal with a complex transition this semester. Congratulations
+on getting through._
+
+My ideals of what you take away from CSC-301:
+
+* x
+* x
+* x
+* x
+* x
+* x
+* x
+
+Autry's goals:
+
+* x
+* x
+* x
+* x
+* x
+* x
+* x
+
 End-of-Course Surveys
 ---------------------
 
-* Reminder: Consider your biases
+* <https://grinnell.smartevals.com>
 * I will be returning after you finish the surveys, so please don't leave.
+* Note: This is the last year with this survey form. Next year, we're 
+  starting a new, potentially less biased, form.
+* Reminder: Consider your biases (see below)
+
+Recent _(and not so recent)_ research suggests that student evaluations of teaching are often influenced by non-conscious and unintentional biases about the gender and/or race of the instructor. According to this research, students systematically rate women of color, white women, and men of color _(also older and less attractive people)_ lower in their teaching evaluations than _young, attractive_ white men, even when there are no actual differences in the instruction or in what students have learned.
+
+From those findings, we, the faculty of Grinnell College, infer that instructors may also be subject to bias based on additional characteristics unrelated to the effectiveness of their teaching. As you fill out the course evaluation _and throughout the semester_ please focus on the effectiveness of the instruction.
 
 Final Comments
 --------------
